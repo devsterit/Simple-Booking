@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Prenota Online</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Start your project here-->  
+  <div style="height: 100vh" class="background">
+    <div class="flex-center flex-column">
+
+      <div class="text-center">
+        <h1 class="font-weight-bold h2 topper whitness">
+            Ordina la tua pasta!!
+        </h1>
+      </div>
+      <div class="text-center">
+        <!-- <p class="mt-2 whitness"></p> -->
+      </div>
+
+
+        <div class="text-center">
+          <a href="" class="btn btn-my-colour whitness btn-rounded mb-4" data-toggle="modal" data-target="#modalOrderDetail">
+            Cosa Mangiare
+          </a>
+        </div>
+
+        <div class="text-center">
+          <a href="" class="btn btn-my-colour whitness btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">
+            Dove Consegnare
+          </a>
+        </div>
+
+
+      </div>
+
+      
+      <form action="success.php" method="POST">
+        <!-- --------------------------------- COSA MANGIARE --------------------------------- -->
+        <div class="modal fade" id="modalOrderDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Cosa Mangiare</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3 prodList">
+                <div class="md-form mb-5">
+                  <select name="prod[]" class="browser-default custom-select prods">
+                    <option value="">Scegli un prodotto</option>
+                    <option value="tagliolini">Tagliolini</option>
+                    <option value="rintrocili">Rintrocili</option>
+                    <option value="chitarrina">Chitarrina</option>
+                  </select>
+                  <p></p>
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="fas fa-balance-scale prefix grey-text"></i>
+                    </div>
+                    <div class="col-10">
+                      <input type="number" pattern="[0-9]*" inputmode="numeric" name="qt[]" id="form34" class="form-control validate qts" placeholder="Quantità (grammi)" required="required">
+                      <!-- <label for="form34">Quantità (grammi)</label> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <a id="addProd" class="btn btn-green mb-4 waves-effect waves-light addProd" role="button">
+                  Aggiungi un altro prodotto
+                </a>
+
+              <div class="modal-footer d-flex justify-content-center">
+                <input type="text" id="closeProductList" class="btn btn-unique" data-dismiss="modal" aria-label="Close" value="Fatto!">
+                   <!-- <i class="fas fa-paper-plane-o ml-1"></i> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------------- FINE COSA MANGIARE --------------------------------- -->
+
+
+
+
+
+        <!-- --------------------------------- DOVE CONSEGNARE --------------------------------- -->
+        <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Dove Consegnare</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                  <i class="fas fa-user prefix grey-text"></i>
+                  <input type="text" name="contactName" id="form34" class="form-control validate" required="required">
+                  <label data-error="wrong" data-success="right" for="form34">Nome e Cognome</label>
+                </div>
+
+                <div class="md-form mb-5">
+                  <i class="fas fa-phone-volume prefix grey-text"></i>
+                  <input type="text" name="contactPhone" id="form29" class="form-control validate" required="required">
+                  <label data-error="wrong" data-success="right" for="form29">Telefono</label>
+                </div>
+
+                <div class="md-form mb-5">
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="fas fa-clock prefix grey-text"></i>
+                    </div>
+                    <div class="col-10">
+                      <select name="hourDelivery" class="browser-default custom-select prods">
+                        <option value="0">Scegli una fascia oraria</option>
+                        <option value="9:30-11:30">9:30-11:30</option>
+                        <option value="12:30-13:30">12:30-13:30</option>
+                        <option value="15:00-17:30">17:30-19:30</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="md-form">
+                  <i class="fas fa-map-marker-alt prefix grey-text"></i>
+                  <input type="text" name="contactAddress" id="contactAddress" class="form-control validate" required="required">
+                  <label data-error="wrong" data-success="right" for="form8">Indirizzo</label>
+                  <!-- <textarea type="text" name="contactAddress" id="form8" class="md-textarea form-control" rows="4"></textarea>-->
+                </div>
+
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" id="placeIt" class="btn btn-unique">
+                    Prenota! <i class="fas fa-paper-plane-o ml-1"></i>
+                </button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------------- FINE DOVE CONSEGNARE --------------------------------- -->
+
+
+
+
+      </form>
+
+
+
+
+
+
+
+
+
+
+       <!-- --------------------------------- CONFERMA ORDINE --------------------------------- -->
+        <div class="modal fade" id="modalOrderConfirmed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Ordine Registrato</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="far fa-smile-beam prefix grey-text"></i>
+                    </div>
+                    <div class="col-10">
+                      Il tuo ordine è stato registrato!<br><br>
+                      Riceverai una telefonata per essere aggiornato sulla preparazione del tuo ordine
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <input type="text" class="btn btn-unique" data-dismiss="modal" aria-label="Close" value="Grande!">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------------- FINE CONFERMA ORDINE --------------------------------- -->
+
+
+
+  </div>
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript">
+    // Material Select Initialization
+    $( document ).ready( function() {
+
+        $( '#closeProductList' ).on( 'click', function(e){
+          e.preventDefault();
+          let proceed = false;
+
+          $( ".prods" ).each(function( index ) {
+            let field = $( this ).val();
+            if ( field == '' ) {
+              alert('devi compilare tutti i campi!');
+              proceed = false;
+            }else{
+              proceed = true;
+            }
+          });
+
+          $( ".qts" ).each(function( index ) {
+            let field = $( this ).val();
+            if (field == '') {
+              alert( 'devi compilare tutti i campi!' );
+              proceed = false;
+            }else{
+              proceed = true;
+            }
+          });
+
+        });
+
+
+
+
+        var maxField = 10; //Input fields increment limitation
+        var addButton = $( '.addProd' ); //Add button selector
+        var wrapper = $( '.prodList' ); //Input field wrapper
+        var fieldHTML = '\
+                <div class="md-form mb-5" bl>\
+                  <select name="prod[]" class="browser-default custom-select prods">\
+                    <option selected>Scegli un prodotto</option>\
+                    <option value="tagliolini">Tagliolini</option>\
+                    <option value="rintrocili">Rintrocili</option>\
+                    <option value="chitarrina">Chitarrina</option>\
+                  </select>\
+                  <p></p>\
+                  <div class="row">\
+                    <div class="col-2">\
+                      <i class="fas fa-balance-scale prefix grey-text"></i>\
+                    </div>\
+                    <div class="col-8">\
+                      <!-- <input type="text" name="qt[]" id="form" class="form-control validate qts" placeholder="Quantità (grammi)">-->\
+                        <input type="number" pattern="[0-9]*" inputmode="numeric" name="qt[]" id="form34" class="form-control validate qts" placeholder="Quantità (grammi)" required="required">\
+                      <!-- <label for="form">Quantità (grammi)</label> -->\
+                    </div>\
+                    <div class="col-2">\
+                      <a href="javascript:void(0);" class="remove_button"><i class="fas fa-trash-alt prefix grey-text"></i></a>\
+                    </div>\
+                  </div>\
+                </div>\
+        ';
+        var x = 1; //Initial field counter is 1
+        
+        //Once add button is clicked
+        $( addButton ).click(function(){
+            //Check maximum number of input fields
+            if( x < maxField ){ 
+                x++; //Increment field counter
+                $( wrapper ).append( fieldHTML ); //Add field html
+            }
+        });
+        
+        //Once remove button is clicked
+        $( wrapper ).on( 'click', '.remove_button', function(e){
+            e.preventDefault();
+            $( this ).parent( 'div' ).parent( 'div' ).parent( 'div' ).remove(); //Remove field html
+            x--; //Decrement field counter
+        });
+
+
+
+    });
+  </script>
+
+
+</body>
+</html>
