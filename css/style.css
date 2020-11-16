@@ -1,0 +1,25 @@
+.background {
+    background-image: url(../img/background.jpg);
+}
+
+.topper {
+	/*background: linear-gradient(to right,#0acffe 0,#495aff 100%);*/
+	background: linear-gradient(to right,#080808cc 0,#000000d4 100%);
+	padding: 20px;
+	/*box-shadow: 0px 10px 51px -5px rgba(0,0,0,0.75);*/
+	box-shadow: 36px 103px 78px 132px rgba(0,0,0,0.75);
+}
+
+
+.whitness {
+	color: white;
+}
+
+
+
+.btn-my-colour {
+	/*background-color: #145e1c;*/
+	/*background-color: #cebdb8;*/ /* MI PIACE */
+	background-color: #58970f;
+	box-shadow: 0px 10px 66px 21px rgba(18,2,18,1);
+}
